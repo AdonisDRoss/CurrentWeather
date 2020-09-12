@@ -4,7 +4,7 @@ window.addEventListener('load',() =>{
     let  tempD = document.querySelector(".temp-description");
     let  tempDegree = document.querySelector(".temp-degrees");
     let  tzone = document.querySelector(".location-TimeZone");
-
+    let   Time = document.querySelector(".date")
 
 
     if(navigator.geolocation){
@@ -21,19 +21,21 @@ const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767
                 })
                 .then(data =>{
                     console.log(data);
-                    const{temperature, summary, icon} = data.currently;
+                    const{temperature, summary, icon, time} = data.currently;
             
                     
                    //DOM ELEMENTS
                    tempDegree.textContent=  temperature;
                    tempD.textContent = summary;
                    tzone.textContent = data.timezone; 
+                   Time.textContent = time*1000 ;
                    //set icon
                    setIcons(icon, document.querySelector(icon));
                    
                 });
             });
     } 
+    
     function setIcons(icon, iconID){
         const skycons = new skycons({color: "white"});
         const currentIcon = icon.replace(/-/g, "_").toUpperCase();
