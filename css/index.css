@@ -29,7 +29,9 @@ body{
     color:white;
    
 }
-.location, 
+.location{
+   text-align: center; 
+}
 .temp{
     height: 30vh;
     width: 50%;

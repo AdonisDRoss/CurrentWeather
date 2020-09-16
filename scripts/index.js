@@ -4,8 +4,8 @@ window.addEventListener('load',() =>{
     let  tempD = document.querySelector(".temp-description");
     let  tempDegree = document.querySelector(".temp-degrees");
     let  tzone = document.querySelector(".location-TimeZone");
-    let   Time = document.querySelector(".date")
-
+    let  timing = document.querySelector(".timet");
+ 
 
     if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(position => {
@@ -28,7 +28,13 @@ const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767
                    tempDegree.textContent=  temperature;
                    tempD.textContent = summary;
                    tzone.textContent = data.timezone; 
-                   Time.textContent = time*1000 ;
+                   let unix_timestamp = time;
+                   let date = new Date(unix_timestamp * 1000);
+                   let hours = date.getHours();
+                   let minutes = "0" + date.getMinutes();  
+                   let seconds = "0" + date.getSeconds();
+                   let    formattedTime = hours -12 + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+                   timing.textContent = formattedTime;
                    //set icon
                    setIcons(icon, document.querySelector(icon));
                    
