@@ -69,7 +69,7 @@ const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767
               bstyle.color = "black";
               hello.innerText = "Have a good morning";
             } else if (hr < 20) {
-              bstyle.background = "linear-gradient(to bottom right, red, yellow)";
+              bstyle.background = "linear-gradient(red, yellow)";
               bstyle.color = "white";
               hello.innerText ="Have a good day!";
             } else {
@@ -84,7 +84,7 @@ const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767
         
 function setIcons(icon, iconID){
      skycons = new skycons({color: "#000"});
-    currentIcon = icon.swi(/-/g, "_").toUpperCase();
+    currentIcon = icon.setIcons(/-/g, "_").toUpperCase();
     skycons.play();
     return skycons.set(iconID, skycons[currentIcon]);
     
