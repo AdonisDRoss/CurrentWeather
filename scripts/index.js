@@ -1,4 +1,5 @@
 window.addEventListener('load',() =>{
+   
     let long;
     let lat;
     let  tempD = document.querySelector(".temp-description");
@@ -38,24 +39,66 @@ const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767
                    let unix_timestamp = time;
                   
                    //set icon
-                   setIcons(icon, document.querySelector(icon));
+                  
                    
                 });
             });
     } 
       
 
-    function ss() {  var d = Date(Date.now());
+    function ss() { 
+         var d = Date(Date.now());
         a = d.toString()
-        let    formattedTime = a;
-        timing.textContent = formattedTime;}
+        let    fTime = a;
+        timing.textContent = fTime;
+     
+    }
+    
+
         setInterval(ss, 1000);
 
-    function setIcons(icon, iconID){
-        const skycons = new skycons({color: "white"});
-        const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-        skycons.play();
-        return skycons.set(iconID, kycons[currentIcon]);
-    }
+        function updateBackground() {
+            var 
+                
+              hr = (new Date()).getHours(),
+              body = document.body,
+              bstyle = document.getElementById('surface').style,    
+              hello = document.querySelector(".hello");    
+            if (hr < 10) {
+              bstyle.background = "yellow";
+              bstyle.color = "black";
+              hello.innerText = "Have a good morning";
+            } else if (hr < 20) {
+              bstyle.background = "linear-gradient(to bottom right, red, yellow)";
+              bstyle.color = "white";
+              hello.innerText ="Have a good day!";
+            } else {
+              bstyle.background = "black";
+              bstyle.color = "white";
+              hello.innerText = "Have a good night!";
+            } 
+          }
+          
+          setInterval(updateBackground, 1000 * 60);
+          updateBackground();
+        
+function setIcons(icon, iconID){
+     skycons = new skycons({color: "#000"});
+    currentIcon = icon.swi(/-/g, "_").toUpperCase();
+    skycons.play();
+    return skycons.set(iconID, skycons[currentIcon]);
+    
+}
+setIcons(icon, document.querySelector(".dated"));
 }
 );
+
+let currentTime = new Date().getHours();
+if (document.body) {
+    if (7 <= currentTime && currentTime < 20) {
+        document.body.background = "http://itsnotch.com/tumblr/images/daytime_bg.jpg";
+    }
+    else {
+        document.body.background = "http://itsnotch.com/tumblr/images/nighttime_bg.jpg";
+    }
+}

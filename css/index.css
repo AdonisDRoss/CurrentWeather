@@ -10,10 +10,14 @@
     align-content: center;
     align-items: center;
     text-align: center;
-    background: red;
-    border-radius: 50%;
+   border: solid 3px;
+background-color: transparent;
     height: 70vh;
     width: 40vw;
+    /*-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;*/
+    font-size: larger;
+    box-shadow: 5px 10px 10px 5px #888888;
     
 }
 title{
